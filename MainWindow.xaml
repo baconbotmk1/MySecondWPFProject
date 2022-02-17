@@ -19,7 +19,7 @@
             <!--<ColumnDefinition Width="*" />-->
         </Grid.ColumnDefinitions>
 
-        <Label FontSize="20px" FontWeight="ExtraBold" Grid.Column="0" HorizontalAlignment="Center">Names</Label>
+        <Label Grid.Row="0" FontSize="20px" FontWeight="ExtraBold" Grid.Column="0" HorizontalAlignment="Center">Names</Label>
         <ListBox Grid.Row="1" x:Name="lstNames" Margin="0,5,0,5"/>
 
         <StackPanel Grid.Row="2" Margin="0,0,0,0">
