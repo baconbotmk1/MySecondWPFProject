@@ -28,9 +28,48 @@ namespace MySecondWPFProject
         {
             if (!string.IsNullOrWhiteSpace(txtName.Text) && !lstNames.Items.Contains(txtName.Text))
             {
-                lstNames.Items.Add(txtName.Text);
+                if (lstNames.Items.Count >= 6)
+                {
+                    lstNames.Items.Clear();
+                    lstNames.Items.Add(txtName.Text);
+                }
+                else
+                {
+                    lstNames.Items.Add(txtName.Text);
+                }
                 txtName.Clear();
+                txtName.Focus();
             }
+        }
+
+        private void ButtonDeleteAll_Click(object sender, RoutedEventArgs e)
+        {
+            lstNames.Items.Clear();
+            txtName.Focus();
+        }
+
+        private void txtName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                ButtonAddName_Click(sender, e);
+            }
+        }
+
+
+        private void ButtonDeleteSpecefic_Click(object sender, RoutedEventArgs e)
+        {
+            lstNames.Items.Remove(lstNames.SelectedItem);
+            if (lstNames.SelectedItem == null)
+            {
+                btnDelSpecefic.IsEnabled = false;
+            }
+            txtName.Focus();
+        }
+
+        private void lstNames_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            btnDelSpecefic.IsEnabled = true;
         }
     }
 }

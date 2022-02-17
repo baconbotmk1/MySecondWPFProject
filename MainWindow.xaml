@@ -20,11 +20,28 @@
         </Grid.ColumnDefinitions>
 
         <Label Grid.Row="0" FontSize="20px" FontWeight="ExtraBold" Grid.Column="0" HorizontalAlignment="Center">Names</Label>
-        <ListBox Grid.Row="1" x:Name="lstNames" Margin="0,5,0,5"/>
+        <ListBox Grid.Row="1" x:Name="lstNames" Margin="0,5,0,5" SelectionChanged="lstNames_SelectionChanged" />
 
         <StackPanel Grid.Row="2" Margin="0,0,0,0">
-            <Label FontSize="16px">Name</Label>
-            <TextBox FontSize="12px" x:Name="txtName" />
+            <StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="3*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="0" FontSize="16px">Name</Label>
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Button Margin="5" Grid.Column="0" x:Name="btnDelSpecefic" Click="ButtonDeleteSpecefic_Click" Visibility="Visible" IsEnabled="False">Delete This</Button>
+                        <Button Margin="5" Grid.Column="1" x:Name="btnDelAll" Click="ButtonDeleteAll_Click">Delete all</Button>
+                    </Grid>
+                </Grid>
+            </StackPanel>
+            <TextBox FontSize="12px" x:Name="txtName" KeyDown="txtName_KeyDown" />
             <Button x:Name="btnAdd" Margin="0,5,0,0" Click="ButtonAddName_Click">Add Name</Button>
         </StackPanel>
 
