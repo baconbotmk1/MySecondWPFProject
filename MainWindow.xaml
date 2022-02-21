@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MySecondWPFProject"
         mc:Ignorable="d"
-        Title="MyFistProject" Height="400" Width="300">
+        Title="{Binding Path=Text, ElementName=txtTopic}" Height="400" Width="300">
     <Grid Margin="10">
 
         <Grid.RowDefinitions>
@@ -19,7 +19,7 @@
             <!--<ColumnDefinition Width="*" />-->
         </Grid.ColumnDefinitions>
 
-        <Label Grid.Row="0" FontSize="20px" FontWeight="ExtraBold" Grid.Column="0" HorizontalAlignment="Center">Names</Label>
+        <TextBlock Grid.Row="0" FontSize="20px" FontWeight="ExtraBold" Grid.Column="0" HorizontalAlignment="Center" Text="{Binding Path=Text, ElementName=txtTopic}" />
         <ListBox Grid.Row="1" x:Name="lstNames" Margin="0,5,0,5" SelectionChanged="lstNames_SelectionChanged" />
 
         <StackPanel Grid.Row="2" Margin="0,0,0,0">
@@ -43,6 +43,7 @@
             </StackPanel>
             <TextBox FontSize="12px" x:Name="txtName" KeyDown="txtName_KeyDown" />
             <Button x:Name="btnAdd" Margin="0,5,0,0" Click="ButtonAddName_Click">Add Name</Button>
+            <TextBox FontSize="12px" x:Name="txtTopic" KeyDown="txtName_KeyDown" Text="Names" />
         </StackPanel>
 
     </Grid>
